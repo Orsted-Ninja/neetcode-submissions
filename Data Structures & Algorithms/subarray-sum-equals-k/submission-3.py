@@ -1,0 +1,16 @@
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        if not nums:
+            return 0
+        c=0
+        fr=defaultdict(int)
+        fr[0]=1
+        pr=0
+        for i in nums:
+            pr+=i
+            if pr-k in fr:
+                c+=fr[pr-k]
+            fr[pr]+=1
+        return c
+                
+            
